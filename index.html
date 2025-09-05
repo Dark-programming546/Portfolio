@@ -118,20 +118,55 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  
+<!-- ...existing code... -->
+ <!-- ...existing code... -->
   <section id="contact" class="bg-dark text-light py-5">
-    <div class="container text-center">
-      <h2>Contact Me</h2>
-      <p class="mb-3">You can reach me via email or social media:</p>
-      <a href="mailto:habtamukashun47@gmail.com" class="btn btn-info mb-3">Send Email</a>
-      <div class="social-icons mt-2">
-          <div class="social-icons mt-2">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Me</h2>
+      <form id="contactForm" action="https://formspree.io/f/xeolpvbj" method="POST" class="mx-auto" style="max-width:500px;">
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Your Email</label>
+          <input type="email" class="form-control" id="email" name="_replyto" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-info w-100">Send Message</button>
+      </form>
+      <div class="social-icons mt-4 text-center">
         <a href="https://github.com/dark-programming546" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://wa.me/251980320282" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
-      </div>
     </div>
   </section>
+
+  <!-- Success Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title" id="successModalLabel"><i class="fas fa-check-circle"></i> Thank You!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p>Your message has been sent successfully.</p>
+          <i class="fas fa-paper-plane fa-3x text-info mb-3"></i>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- ...existing code... -->
+
+
 
   <!-- Footer -->
   <footer class="bg-black text-center text-light py-3">

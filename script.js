@@ -1,12 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card");
-  cards.forEach((card, index) => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(20px)";
-    setTimeout(() => {
-      card.style.transition = "all 0.6s ease";
-      card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
-    }, 200 * index);
-  });
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          form.reset();
+          const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+          successModal.show();
+        } else {
+          alert("Sorry, there was a problem sending your message.");
+        }
+      })
+      .catch(error => {
+        alert("Sorry, there was a problem sending your message.");
+      });
+    });
 });
